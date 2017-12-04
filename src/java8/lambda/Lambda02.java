@@ -1,7 +1,6 @@
 package java8.lambda;
 
 /**
- * ¿élambda±í´ïÊ½
  * Created by zfz on 2017/11/11.
  */
 public class Lambda02 {

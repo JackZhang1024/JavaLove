@@ -4,8 +4,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * https://www.toutiao.com/i6476014517586231822/
- * 两个线程 轮流打印 A B
+ * 涓や釜绾跨▼杞祦鎵撳嵃AB
  * Created by zfz on 2017/11/16.
  */
 public class MultiThreadLearn16 {
@@ -18,7 +17,6 @@ public class MultiThreadLearn16 {
         method2();
     }
 
-    // 方法一
     public static void method1() {
         PrintManger printManger = new PrintManger();
         printManger.setPrintA(true);
@@ -29,7 +27,6 @@ public class MultiThreadLearn16 {
         threadB.start();
     }
 
-    // 方案二不严谨
     public static void method2(){
         MultiThreadLearn16 multiThreadLearn16 = new MultiThreadLearn16();
         A threadA = multiThreadLearn16.new A();

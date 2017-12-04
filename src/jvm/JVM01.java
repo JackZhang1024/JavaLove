@@ -15,8 +15,14 @@ public class JVM01 {
         //stackOom.stack();
 
         // Java¶ÑÒç³ö
-        HeapOom heapOom = new HeapOom();
-        heapOom.heap();
+        //HeapOom heapOom = new HeapOom();
+        //heapOom.heap();
+        long totalMemory = Runtime.getRuntime().totalMemory();
+        long freeMemory = Runtime.getRuntime().freeMemory();
+        long maxMemory = Runtime.getRuntime().maxMemory();
+        System.out.println("TotalMemory "+totalMemory/(1024*1024)+" M");
+        System.out.println("FreeMemory  "+freeMemory/(1024*1024)+" M");
+        System.out.println("MaxMemory "+maxMemory/(1024*1024)+" M");
     }
 
     public static class StackOom {

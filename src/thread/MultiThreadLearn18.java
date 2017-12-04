@@ -3,25 +3,25 @@ package thread;
 import java.util.ArrayList;
 
 /**
- * ThreadLocal µÄÑ§Ï°
- * ThreadLocal ¸øÏß³ÌÒ»¸ö±äÁ¿µÄ±¾µØÏß³Ì¸±±¾
- * ¶ø²»ÓÃ¹ØĞÄÆäËûÏß³Ì¶ÔÕâ¸ö±äÁ¿µÄÊ¹ÓÃÇé¿ö
+ * ThreadLocal çš„å­¦ä¹ 
+ * ThreadLocal ç»™çº¿ç¨‹ä¸€ä¸ªå˜é‡çš„æœ¬åœ°çº¿ç¨‹å‰¯æœ¬
+ * è€Œä¸ç”¨å…³å¿ƒå…¶ä»–çº¿ç¨‹å¯¹è¿™ä¸ªå˜é‡çš„ä½¿ç”¨æƒ…å†µ
  * <p>
- * Ë®¹ûµêÀÏ°åÂôË®¹ûµÄ¹ÊÊÂ
+ * æ°´æœåº—è€æ¿å–æ°´æœçš„æ•…äº‹
  * <p>
- * get()£º·µ»Øµ±Ç°Ïß³Ì¿½±´µÄ¾Ö²¿Ïß³Ì±äÁ¿µÄÖµ¡£
- * initialValue()£º·µ»Øµ±Ç°Ïß³Ì¸³Óè¾Ö²¿Ïß³Ì±äÁ¿µÄ³õÊ¼Öµ¡£
- * remove()£ºÒÆ³ıµ±Ç°Ïß³Ì¸³Óè¾Ö²¿Ïß³Ì±äÁ¿µÄÖµ¡£
- * set(T value)£ºÎªµ±Ç°Ïß³Ì¿½±´µÄ¾Ö²¿Ïß³Ì±äÁ¿ÉèÖÃÒ»¸öÌØ¶¨µÄÖµ
+ * get()ï¼šè¿”å›å½“å‰çº¿ç¨‹æ‹·è´çš„å±€éƒ¨çº¿ç¨‹å˜é‡çš„å€¼ã€‚
+ * initialValue()ï¼šè¿”å›å½“å‰çº¿ç¨‹èµ‹äºˆå±€éƒ¨çº¿ç¨‹å˜é‡çš„åˆå§‹å€¼ã€‚
+ * remove()ï¼šç§»é™¤å½“å‰çº¿ç¨‹èµ‹äºˆå±€éƒ¨çº¿ç¨‹å˜é‡çš„å€¼ã€‚
+ * set(T value)ï¼šä¸ºå½“å‰çº¿ç¨‹æ‹·è´çš„å±€éƒ¨çº¿ç¨‹å˜é‡è®¾ç½®ä¸€ä¸ªç‰¹å®šçš„å€¼
  * <p>
- * Õâ¸ö½âÊÍµÄ±È½ÏÇå³ş http://www.importnew.com/14398.html
+ * è¿™ä¸ªè§£é‡Šçš„æ¯”è¾ƒæ¸…æ¥š http://www.importnew.com/14398.html
  * <p>
- * ThreadLocal Ê¹ÓÃ²½ÖèÒ»°ã·ÖÎªÈı²½£º
- * 1.´´½¨Ò»¸ö ThreadLocal ¶ÔÏó threadXxx£¬ÓÃÀ´±£´æÏß³Ì¼äĞèÒª¸ôÀë´¦ÀíµÄ¶ÔÏó xxx£»
- * 2.Ìá¹©Ò»¸ö»ñÈ¡Òª¸ôÀë·ÃÎÊµÄÊı¾İµÄ·½·¨ getXxx()£¬ÔÚ·½·¨ÖĞÅĞ¶Ï£¬Èô ThreadLocal¶ÔÏóÎªnullÊ±ºò£¬
- * Ó¦¸Ã new() Ò»¸ö¸ôÀë·ÃÎÊÀàĞÍµÄ¶ÔÏó£»
- * 3.ÔÚÏß³ÌÀàµÄrun()·½·¨ÖĞ£¬Í¨¹ıgetXxx()·½·¨»ñÈ¡Òª²Ù×÷µÄÊı¾İ£¬
- * ÕâÑù¿ÉÒÔ±£Ö¤Ã¿¸öÏß³Ì¶ÔÓ¦Ò»¸öÊı¾İ¶ÔÏó£¬ÔÚÈÎºÎÊ±¿Ì¶¼²Ù×÷µÄÊÇÕâ¸ö¶ÔÏó£¬²»»á½»²æ¡£
+ * ThreadLocal ä½¿ç”¨æ­¥éª¤ä¸€èˆ¬åˆ†ä¸ºä¸‰æ­¥ï¼š
+ * 1.åˆ›å»ºä¸€ä¸ª ThreadLocal å¯¹è±¡ threadXxxï¼Œç”¨æ¥ä¿å­˜çº¿ç¨‹é—´éœ€è¦éš”ç¦»å¤„ç†çš„å¯¹è±¡ xxxï¼›
+ * 2.æä¾›ä¸€ä¸ªè·å–è¦éš”ç¦»è®¿é—®çš„æ•°æ®çš„æ–¹æ³• getXxx()ï¼Œåœ¨æ–¹æ³•ä¸­åˆ¤æ–­ï¼Œè‹¥ ThreadLocalå¯¹è±¡ä¸ºnullæ—¶å€™ï¼Œ
+ * åº”è¯¥ new() ä¸€ä¸ªéš”ç¦»è®¿é—®ç±»å‹çš„å¯¹è±¡ï¼›
+ * 3.åœ¨çº¿ç¨‹ç±»çš„run()æ–¹æ³•ä¸­ï¼Œé€šè¿‡getXxx()æ–¹æ³•è·å–è¦æ“ä½œçš„æ•°æ®ï¼Œ
+ * è¿™æ ·å¯ä»¥ä¿è¯æ¯ä¸ªçº¿ç¨‹å¯¹åº”ä¸€ä¸ªæ•°æ®å¯¹è±¡ï¼Œåœ¨ä»»ä½•æ—¶åˆ»éƒ½æ“ä½œçš„æ˜¯è¿™ä¸ªå¯¹è±¡ï¼Œä¸ä¼šäº¤å‰ã€‚
  * <p>
  * <p>
  * Created by zfz on 2017/11/25.
@@ -35,15 +35,15 @@ public class MultiThreadLearn18 {
 
     private static void sellFruits() {
         Basket basket = new Basket();
-        Boss boss1 = new Boss("Ğ¡ÕÅ", basket);
-        Boss boss2 = new Boss("Ğ¡Àî", basket);
+        Boss boss1 = new Boss("å°æ", basket);
+        Boss boss2 = new Boss("å°å¼ ", basket);
         boss1.start();
         boss2.start();
     }
 
     private static void sellFruitsByThreadLocal() {
-        BossThreadLocal boss3 = new BossThreadLocal("Ğ¡ÕÅ");
-        BossThreadLocal boss4 = new BossThreadLocal("Ğ¡Àî");
+        BossThreadLocal boss3 = new BossThreadLocal("å°æ");
+        BossThreadLocal boss4 = new BossThreadLocal("å°å¼ ");
         boss3.start();
         boss4.start();
     }
@@ -53,11 +53,11 @@ public class MultiThreadLearn18 {
         private ArrayList<String> fruits = new ArrayList<>();
 
         public Basket() {
-            fruits.add("Æ»¹û");
-            fruits.add("Àæ");
-            fruits.add("Ïã½¶");
-            fruits.add("éÙ×Ó");
-            fruits.add("Î÷¹Ï");
+            fruits.add("è‹¹æœ");
+            fruits.add("æ¢¨");
+            fruits.add("æ©˜å­");
+            fruits.add("é¦™è•‰");
+            fruits.add("è‰è“");
         }
 
         public void addFruit(String fruit) {
@@ -67,7 +67,7 @@ public class MultiThreadLearn18 {
         public void sell() {
             while (!fruits.isEmpty()) {
                 String fruit = fruits.remove(0);
-                System.out.println(Thread.currentThread().getName() + "Âô³öË®¹û " + fruit);
+                System.out.println(Thread.currentThread().getName() + "å–å‡º " + fruit);
             }
         }
     }
@@ -108,13 +108,12 @@ public class MultiThreadLearn18 {
 
     private static ThreadLocal<Basket> basketThreadLocal = new ThreadLocal<>();
 
-    // Õâ¿é²»ÓÃnew ¶øÊÇÊ¹ÓÃget()·½·¨µÄÄ¿µÄÊÇÖØÓÃ¶ø²»ÊÇÖØĞÂ¿ª±ÙĞÂµÄÄÚ´æ¿Õ¼äÀ´
     private static Basket getBasket() {
         Basket basket = basketThreadLocal.get();
         if (basket == null) {
             basket = new Basket();
-            basket.addFruit("ÌÒ×Ó");
-            basket.addFruit("ÀóÖ¦");
+            basket.addFruit("çŒ•çŒ´æ¡ƒ");
+            basket.addFruit("è¥¿ç“œ");
             basketThreadLocal.set(basket);
         }
         return basket;

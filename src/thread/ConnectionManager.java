@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Threadlocal的使用
+ * Threadlocal 甯哥敤鏂规硶
  * Created by zfz on 2017/11/25.
  */
 public class ConnectionManager {

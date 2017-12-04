@@ -2,7 +2,6 @@ package thread;
 
 /**
  * https://www.toutiao.com/i6476014517586231822/
- * Èı¸öÏß³Ì ÂÖÁ÷´òÓ¡ A B C
  * http://www.cnblogs.com/jyx140521/p/6747750.html
  * Created by zfz on 2017/11/16.
  */
@@ -66,7 +65,7 @@ public class MultiThreadLearn17 {
                 synchronized (printManger) {
                     try {
                         while (!printManger.isPrintA()) {
-                            printManger.wait(); // wait()·½·¨ ÊÍ·ÅÕ¼ÓĞµÄËø
+                            printManger.wait(); // wait()
                         }
                         System.out.println("print A ");
                         Thread.sleep(2000);
@@ -74,10 +73,10 @@ public class MultiThreadLearn17 {
                         printManger.setPrintB(true);
                         printManger.setPrintC(false);
                         printManger.notifyAll();
-                        // ÕâÀïÊ¹ÓÃwhileÊÇÎªÁË¶à´Î¼ì²âÊÇ·ñ´òÓ¡A
-                        // ÒòÎªÔÚnotifyAll()ÊÇ Ïß³ÌAÒ²ÓĞ¿ÉÄÜÏÈÓÚÏß³ÌBÄÃµ½Ëø ¼ÌĞø½øÈëÏß³ÌA
-                        // ÔÚwait()ÊÍ·ÅËøÖ®ºó Ïß³ÌB¿ÉÄÜÄÃµ½Ëø ´òÓ¡B ÊÍ·ÅËø ´ËÊ± notifyAllÊ±
-                        // ¾Í»á´òÓ¡ A ÒòÎªAÒÑ¾­²»ÔÙ¼ì²éÊÇ·ñ·ûºÏ´òÓ¡AµÄÌõ¼ş
+                        // è¿™é‡Œä½¿ç”¨whileæ˜¯ä¸ºäº†å¤šæ¬¡æ£€æµ‹æ˜¯å¦æ‰“å°A
+                        // å› ä¸ºåœ¨notifyAll()æ˜¯ çº¿ç¨‹Aä¹Ÿæœ‰å¯èƒ½å…ˆäºçº¿ç¨‹Bæ‹¿åˆ°é” ç»§ç»­è¿›å…¥çº¿ç¨‹A
+                        // åœ¨wait()é‡Šæ”¾é”ä¹‹å çº¿ç¨‹Bå¯èƒ½æ‹¿åˆ°é” æ‰“å°B é‡Šæ”¾é” æ­¤æ—¶ notifyAllæ—¶
+                        // å°±ä¼šæ‰“å° A å› ä¸ºAå·²ç»ä¸å†æ£€æŸ¥æ˜¯å¦ç¬¦åˆæ‰“å°Açš„æ¡ä»¶
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
