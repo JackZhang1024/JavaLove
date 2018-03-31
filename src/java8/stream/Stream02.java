@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
- * Ëõ¼õ²Ù×÷
+ * ç¼©å‡æ“ä½œ
  *
- * »ùÓÚÁ÷ÖĞµÄÔªËØ·µ»Ø½á¹û
- * Ëõ¼õ²Ù×÷µÄ¾ÍÊÇ½«Ò»¸öÁ÷Ëõ¼õ³ÉÒ»¸öÖµµÄ²Ù×÷
- * max()ºÍmin() count() ¶¼ÊÇËõ¼õ²Ù×÷
+ * åŸºäºæµä¸­çš„å…ƒç´ è¿”å›ç»“æœ
+ * ç¼©å‡æ“ä½œçš„å°±æ˜¯å°†ä¸€ä¸ªæµç¼©å‡æˆä¸€ä¸ªå€¼çš„æ“ä½œ
+ * max()å’Œmin() count() éƒ½æ˜¯ç¼©å‡æ“ä½œ
  *
- * Á÷»ùÓÚ·º»¯¸ÅÄî£¬Ìá¹©reduce()·½·¨¡£Í¨¹ı
- * reduce()²Ù×÷£¬¿ÉÒÔ»ùÓÚÈÎÒâÌõ¼ş£¬´ÓÁ÷ÖĞ·µ»ØÒ»¸öÖµ¡£
- * ¸ù¾İ¶¨Òå£¬ËùÓĞËõ¼õ²Ù×÷¶¼ÊÇÖÕ¶Ë²Ù×÷¡£
+ * æµåŸºäºæ³›åŒ–æ¦‚å¿µï¼Œæä¾›reduce()æ–¹æ³•ã€‚é€šè¿‡
+ * reduce()æ“ä½œï¼Œå¯ä»¥åŸºäºä»»æ„æ¡ä»¶ï¼Œä»æµä¸­è¿”å›ä¸€ä¸ªå€¼ã€‚
+ * æ ¹æ®å®šä¹‰ï¼Œæ‰€æœ‰ç¼©å‡æ“ä½œéƒ½æ˜¯ç»ˆç«¯æ“ä½œã€‚
  *
  * Created by zfz on 2017/11/11.
  */
@@ -20,16 +20,16 @@ public class Stream02 {
 
     public static void main(String[] args) {
 
-        // ´´½¨Ò»¸öÁĞ±í
+        // åˆ›å»ºä¸€ä¸ªåˆ—è¡¨
         ArrayList<Integer> myList = new ArrayList<>();
         myList.add(1);
         myList.add(2);
         myList.add(3);
         myList.add(4);
 
-        // ½øĞĞËõ¼õ²Ù×÷
+        // è¿›è¡Œç¼©å‡æ“ä½œ
 
-        // µÚÒ»ÖÖËõ¼õ²Ù×÷
+        // ç¬¬ä¸€ç§ç¼©å‡æ“ä½œ
         Optional<Integer> productObj = myList.stream().reduce((a, b)->{
             return  a*b;
         });
@@ -37,19 +37,19 @@ public class Stream02 {
             System.out.println("Product as optional:  "+productObj.get());
         }
 
-        // µÚ¶şÖÖËõ¼õ²Ù×÷ identityÊÇµ¥Î»ÖµµÄÒâË¼
-        // ÀÛ¼Æº¯ÊıÊÇ³Ë·¨µÄÊ±ºò identityÊÇ1
-        // ÀÛ¼Æº¯ÊıÊÇ¼Ó·¨µÄÊ±ºò identityÊÇ0
-        // reduce() ²ÎÊıÖĞ a±íÊ¾µÄÊÇÀÛ¼Æ½á¹ûÖĞµ±Ç°µÄÖµ b ±íÊ¾µÄÊÇÁ÷ÖĞÏÂÒ»¸öÔªËØ
+        // ç¬¬äºŒç§ç¼©å‡æ“ä½œ identityæ˜¯å•ä½å€¼çš„æ„æ€
+        // ç´¯è®¡å‡½æ•°æ˜¯ä¹˜æ³•çš„æ—¶å€™ identityæ˜¯1
+        // ç´¯è®¡å‡½æ•°æ˜¯åŠ æ³•çš„æ—¶å€™ identityæ˜¯0
+        // reduce() å‚æ•°ä¸­ aè¡¨ç¤ºçš„æ˜¯ç´¯è®¡ç»“æœä¸­å½“å‰çš„å€¼ b è¡¨ç¤ºçš„æ˜¯æµä¸­ä¸‹ä¸€ä¸ªå…ƒç´ 
         int product = myList.stream().reduce(1, (a, b)->a*b);
         System.out.println("Product as int:  "+product);
 
-        // ¼ÆËãÁĞ±íÖĞÅ¼ÊıµÄ³Ë»ı
+        // è®¡ç®—åˆ—è¡¨ä¸­å¶æ•°çš„ä¹˜ç§¯
         int product1 = myList.stream().reduce(1, (a, b)->{
             if (b%2==0) return a*b;
             else return a;
         });
-        System.out.println("ÁĞ±íÖĞÅ¼ÊıµÄ³Ë»ı "+product1);
+        System.out.println("åˆ—è¡¨ä¸­å¶æ•°çš„ä¹˜ç§¯ "+product1);
     }
 
 

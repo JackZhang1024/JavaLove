@@ -1,7 +1,7 @@
 package java8.lambda;
 
 /**
- * ½«lambda±í´ïÊ½×÷Îª²ÎÊı
+ * å°†lambdaè¡¨è¾¾å¼ä½œä¸ºå‚æ•°
  * Created by zfz on 2017/11/11.
  */
 public class Lambda04 {

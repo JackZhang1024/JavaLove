@@ -1,7 +1,7 @@
 package java8.lambda;
 
 /**
- * 泛型中的方法使用
+ * 娉涘瀷涓殑鏂规硶浣跨敤
  * Created by zfz on 2017/11/11.
  */
 public class Lambda10 {

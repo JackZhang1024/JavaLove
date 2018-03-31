@@ -3,30 +3,30 @@ package java8.lambda;
 import java.util.function.Function;
 
 /**
- * Ô¤¶¨ÒåµÄº¯ÊýÊ½½Ó¿Ú
+ * é¢„å®šä¹‰çš„å‡½æ•°å¼æŽ¥å£
  *
- * java.util.function °üÖÐÌá¹©µÄÒ»Ð©Ô¤¶¨ÒåµÄº¯ÊýÊ½½Ó¿Ú
+ * java.util.function åŒ…ä¸­æä¾›çš„ä¸€äº›é¢„å®šä¹‰çš„å‡½æ•°å¼æŽ¥å£
  * 1. UnaryOperator<T>
- *    ¶ÔÀàÐÍÎª T µÄ¶ÔÏóÓ¦ÓÃÒ»ÔªÔËËã£¬ ²¢·µ»Ø½á¹û¡£½á¹ûµÄÀàÐÍÒ²ÊÇT.
- *    °üº¬µÄ·½·¨ÃûÎªapply()
+ *    å¯¹ç±»åž‹ä¸º T çš„å¯¹è±¡åº”ç”¨ä¸€å…ƒè¿ç®—ï¼Œ å¹¶è¿”å›žç»“æžœã€‚ç»“æžœçš„ç±»åž‹ä¹Ÿæ˜¯T.
+ *    åŒ…å«çš„æ–¹æ³•åä¸ºapply()
  *
  * 2. BinaryOperator<T>
- *    ¶ÔÀàÐÍÎª T µÄÁ½¸ö¶ÔÏó½øÐÐ²Ù×÷£¬²¢·µ»Ø½á¹û£¬·µ»Ø½á¹ûµÄÀàÐÍÒ²ÊÇT.
- *    °üº¬µÄ·½·¨ÃûÎªapply()
+ *    å¯¹ç±»åž‹ä¸º T çš„ä¸¤ä¸ªå¯¹è±¡è¿›è¡Œæ“ä½œï¼Œå¹¶è¿”å›žç»“æžœï¼Œè¿”å›žç»“æžœçš„ç±»åž‹ä¹Ÿæ˜¯T.
+ *    åŒ…å«çš„æ–¹æ³•åä¸ºapply()
  *
  * 3. Consumer<T>
- *    ¶ÔÀàÐÍÎªT µÄ¶ÔÏó½øÐÐ²Ù×÷¡£°üº¬µÄ·½·¨ÃûÎªaccept()
+ *    å¯¹ç±»åž‹ä¸ºT çš„å¯¹è±¡è¿›è¡Œæ“ä½œã€‚åŒ…å«çš„æ–¹æ³•åä¸ºaccept()
  *
  * 4. Supplier<T>
- *    ·µ»ØÀàÐÍÎª T µÄ¶ÔÏó¡£°üº¬µÄ·½·¨ÃûÎªget()
+ *    è¿”å›žç±»åž‹ä¸º T çš„å¯¹è±¡ã€‚åŒ…å«çš„æ–¹æ³•åä¸ºget()
  *
  * 5. Function<T, R>
- *    ¶ÔÀàÐÍÎª TµÄ¶ÔÏóÒýÓÃ²Ù×÷£¬²¢·µ»Ø½á¹û¡£½á¹ûÀàÐÍÎª RµÄ¶ÔÏó¡£
- *    °üº¬µÄ·½·¨ÃûÎª apply()
+ *    å¯¹ç±»åž‹ä¸º Tçš„å¯¹è±¡å¼•ç”¨æ“ä½œï¼Œå¹¶è¿”å›žç»“æžœã€‚ç»“æžœç±»åž‹ä¸º Rçš„å¯¹è±¡ã€‚
+ *    åŒ…å«çš„æ–¹æ³•åä¸º apply()
  *
  * 6. Predicate<T>
- *    È·¶¨ÀàÐÍÎª TµÄ¶ÔÏóÊÇ·ñÂú×ãÄ³ÖÖÔ¼Êø£¬·µ»ØµÄ½á¹ûÊÇ²¼¶ûÖµ¡£
- *    °üº¬µÄ·½·¨ÃûÎª test()
+ *    ç¡®å®šç±»åž‹ä¸º Tçš„å¯¹è±¡æ˜¯å¦æ»¡è¶³æŸç§çº¦æŸï¼Œè¿”å›žçš„ç»“æžœæ˜¯å¸ƒå°”å€¼ã€‚
+ *    åŒ…å«çš„æ–¹æ³•åä¸º test()
  *
  * Created by zfz on 2017/11/11.
  */

@@ -1,7 +1,7 @@
 package java8.stream;
 
 /**
- * ²¢ĞĞÁ÷²Ù×÷
+ * å¹¶è¡Œæµæ“ä½œ
  * Created by zfz on 2017/11/11.
  * */
 

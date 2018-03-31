@@ -1,7 +1,7 @@
 package java8.lambda;
 
 /**
- * 具有泛型类型的函数式接口
+ * 鍏锋湁娉涘瀷绫诲瀷鐨勫嚱鏁板紡鎺ュ彛
  * Created by zfz on 2017/11/11.
  */
 public class Lambda03 {

@@ -6,7 +6,7 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 
 /**
- * ·ÃÎÊ°Ù¶ÈÖ÷Ò³
+ * è®¿é—®ç™¾åº¦ä¸»é¡µ
  * <p>
  * Created by zfz on 2017/12/2.
  */
@@ -21,13 +21,13 @@ public class NIOLearn002 {
     private static void accessBaiduHome() {
         try {
             InetSocketAddress socketAddress = new InetSocketAddress("www.tmall.com", 80);
-            // 1. ´ò¿ªÁ¬½Ó
+            // 1. æ‰“å¼€è¿æ¥
             channel = SocketChannel.open(socketAddress);
             channel.write(charset.encode("GET" + "/HTTP/1.1" + "\r\n\r\n"));
             ByteBuffer buffer = ByteBuffer.allocate(1024*20);
             while (channel.read(buffer)!= -1) {
-                buffer.flip(); // flip·½·¨ÔÚ¶ÁÈ¡»º´æÇø×Ö½Ú²Ù×÷Ö®Ç°µ÷ÓÃ
-                System.out.println(charset.decode(buffer)); // charset.decode()·½·¨¿ÉÒÔ½«×Ö½Ú×ª»»³Æ×Ö·û´®
+                buffer.flip(); // flipæ–¹æ³•åœ¨è¯»å–ç¼“å­˜åŒºå­—èŠ‚æ“ä½œä¹‹å‰è°ƒç”¨
+                System.out.println(charset.decode(buffer)); // charset.decode()æ–¹æ³•å¯ä»¥å°†å­—èŠ‚è½¬æ¢ç§°å­—ç¬¦ä¸²
                 buffer.clear();
             }
         } catch (Exception e) {

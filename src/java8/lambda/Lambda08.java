@@ -1,8 +1,8 @@
 package java8.lambda;
 
 /**
- * ÊµÀý·½·¨µÄ·½·¨ÒýÓÃ
- * Òª´«µÝ¶ÔÄ³¸ö¶ÔÏóµÄÊµÀý·½·¨µÄÒýÓÃ£¬ÐèÒªÊ¹ÓÃÏÂÃæµÄ»ù±¾Óï·¨£º
+ * å®žä¾‹æ–¹æ³•çš„æ–¹æ³•å¼•ç”¨
+ * è¦ä¼ é€’å¯¹æŸä¸ªå¯¹è±¡çš„å®žä¾‹æ–¹æ³•çš„å¼•ç”¨ï¼Œéœ€è¦ä½¿ç”¨ä¸‹é¢çš„åŸºæœ¬è¯­æ³•ï¼š
  * objRef::methodName
  *
  * Created by zfz on 2017/11/11.

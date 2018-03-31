@@ -1,8 +1,8 @@
 package java8.lambda;
 
 /**
- * ¿ÉÒÔÖ¸¶¨Ò»¸öÊµÀı·½·¨£¬Ê¹ÆäÄÜ¹»ÓÃÓÚ¸ø¶¨ÀàµÄÈÎÒâ¶ÔÏó¶ø²»ÊÇÖ¸¶¨¶ÔÏó¡£
- * ´ËÊ±£¬ĞèÒªÏñÏÂÃæ´´½¨·½·¨ÒıÓÃ£º
+ * å¯ä»¥æŒ‡å®šä¸€ä¸ªå®ä¾‹æ–¹æ³•ï¼Œä½¿å…¶èƒ½å¤Ÿç”¨äºç»™å®šç±»çš„ä»»æ„å¯¹è±¡è€Œä¸æ˜¯æŒ‡å®šå¯¹è±¡ã€‚
+ * æ­¤æ—¶ï¼Œéœ€è¦åƒä¸‹é¢åˆ›å»ºæ–¹æ³•å¼•ç”¨ï¼š
  *
  * className::instanceMethodName
  *
@@ -25,9 +25,9 @@ public class Lambda09 {
         System.out.println("count "+count);
     }
 
-    // ×¢Òâ£ºµ±±í´ïÊ½HighTemp::sameTemp»òÕßHighTemp::lessThanTemp
-    // ±»´«µİµ½counter()·½·¨ÖĞÊ±£¬»á´´½¨Ò»¸öº¯ÊıÊ½½Ó¿ÚMyFuncµÄÊµÀı
-    // Õâ¸öºÍÀàÃûÖ±½Óµ÷ÓÃÊÇÓĞÇø±ğµÄ
+    // æ³¨æ„ï¼šå½“è¡¨è¾¾å¼HighTemp::sameTempæˆ–è€…HighTemp::lessThanTemp
+    // è¢«ä¼ é€’åˆ°counter()æ–¹æ³•ä¸­æ—¶ï¼Œä¼šåˆ›å»ºä¸€ä¸ªå‡½æ•°å¼æ¥å£MyFuncçš„å®ä¾‹
+    // è¿™ä¸ªå’Œç±»åç›´æ¥è°ƒç”¨æ˜¯æœ‰åŒºåˆ«çš„
     static <T> int counter(T[] vals, MyFunc<T> f, T v){
         int count = 0;
         for (int index =0; index<vals.length; index++){

@@ -1,9 +1,9 @@
 package java8.lambda;
 
 /**
- * lambda±í´ïÊ½Óë±äÁ¿²¶»ñ
- * Èç¹ûlambdaÒýÓÃÁËÍâ²¿µÄ±äÁ¿ ÄÇÃ´¸Ã±äÁ¿¾Í»á³ÉÎªfinal³£Á¿
- * ²»ÄÜÔÙ¶Ô¸Ã±äÁ¿½øÐÐ¸³Öµ²Ù×÷»òÕß×ÓÔö×Ô¼õ²Ù×÷
+ * lambdaè¡¨è¾¾å¼ä¸Žå˜é‡æ•èŽ·
+ * å¦‚æžœlambdaå¼•ç”¨äº†å¤–éƒ¨çš„å˜é‡ é‚£ä¹ˆè¯¥å˜é‡å°±ä¼šæˆä¸ºfinalå¸¸é‡
+ * ä¸èƒ½å†å¯¹è¯¥å˜é‡è¿›è¡Œèµ‹å€¼æ“ä½œæˆ–è€…å­å¢žè‡ªå‡æ“ä½œ
  * Created by zfz on 2017/11/11.
  */
 public class Lambda06 {

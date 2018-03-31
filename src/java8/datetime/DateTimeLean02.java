@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 /**
- * Java8 新增的时间和日期 API
  * Created by zfz on 2017/12/3.
  */
 public class DateTimeLean02 {

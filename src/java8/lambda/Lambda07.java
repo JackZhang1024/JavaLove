@@ -1,14 +1,14 @@
 package java8.lambda;
 
 /**
- * ·½·¨ÒıÓÃ
+ * æ–¹æ³•å¼•ç”¨
  *
- * ÓĞÒ»¸öÖØÒªµÄÌØĞÔÓëlambda ±í´ïÊ½Ïà¹Ø£¬½Ğ×ö·½·¨ÒıÓÃ¡£
- * ·½·¨ÒıÓÃÌá¹©ÁËÒ»ÖÖÒıÓÃ¶ø²»Ö´ĞĞµÄ·½Ê½¡£ÕâÖÖÌØĞÔÓëlambda±í´ïÊ½Ïà¹Ø¡£
- * ÒòÎªËûÒ²ĞèÒªÓÉ¼æÈİµÄº¯ÊıÊ½½Ó¿Ú¹¹³ÉµÄÄ¿±êÉÏÏÂÎÄ¡£
+ * æœ‰ä¸€ä¸ªé‡è¦çš„ç‰¹æ€§ä¸lambda è¡¨è¾¾å¼ç›¸å…³ï¼Œå«åšæ–¹æ³•å¼•ç”¨ã€‚
+ * æ–¹æ³•å¼•ç”¨æä¾›äº†ä¸€ç§å¼•ç”¨è€Œä¸æ‰§è¡Œçš„æ–¹å¼ã€‚è¿™ç§ç‰¹æ€§ä¸lambdaè¡¨è¾¾å¼ç›¸å…³ã€‚
+ * å› ä¸ºä»–ä¹Ÿéœ€è¦ç”±å…¼å®¹çš„å‡½æ•°å¼æ¥å£æ„æˆçš„ç›®æ ‡ä¸Šä¸‹æ–‡ã€‚
  *
- * ·½·¨ÒıÓÃÓĞ¶àÖÖ
- * 1. ¾²Ì¬·½·¨µÄÒıÓÃ
+ * æ–¹æ³•å¼•ç”¨æœ‰å¤šç§
+ * 1. é™æ€æ–¹æ³•çš„å¼•ç”¨
  *
  *
  * Created by zfz on 2017/11/11.
@@ -16,9 +16,9 @@ package java8.lambda;
 public class Lambda07 {
 
     public static void main(String[] args) {
-        // MyStringOps::strReverseÊÇ×öÎªÒ»¸öÒıÓÃ³öÏÖµÄ
-        // ÎªÊ²Ã´strReverse¿ÉÒÔ×÷ÎªstrOpsµÄµÚÒ»¸ö²ÎÊı
-        // ÒòÎªstrReverseºÍStringOptµÄº¯ÊıÊ½½Ó¿Ú¼æÈİ
+        // MyStringOps::strReverseæ˜¯åšä¸ºä¸€ä¸ªå¼•ç”¨å‡ºç°çš„
+        // ä¸ºä»€ä¹ˆstrReverseå¯ä»¥ä½œä¸ºstrOpsçš„ç¬¬ä¸€ä¸ªå‚æ•°
+        // å› ä¸ºstrReverseå’ŒStringOptçš„å‡½æ•°å¼æ¥å£å…¼å®¹
         String result = strOps(MyStringOps::strReverse,"123456");
         System.out.println("result "+result);
     }
@@ -32,7 +32,7 @@ public class Lambda07 {
         String strOpt(String s);
     }
 
-    // MyStringOps²»Ò»¶¨ÊÇ¾²Ì¬Àà µ«strReverseÒ»¶¨ÊÇ¾²Ì¬·½·¨
+    // MyStringOpsä¸ä¸€å®šæ˜¯é™æ€ç±» ä½†strReverseä¸€å®šæ˜¯é™æ€æ–¹æ³•
     static class MyStringOps{
 
         static String strReverse(String str){

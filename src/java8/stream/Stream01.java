@@ -5,11 +5,11 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * Á÷APIµÄ¹Ø¼üÒ»µãÔÚÓÚÄÜ¹»Ö´ĞĞ·Ç³£¸´ÔÓµÄ²éÕÒ¡¢¹ıÂËºÍÓ³ÉäÊı¾İµÈ²Ù×÷
- * ¼òµ¥À´Ëµ Á÷APIÌá¹©ÁË¼òµ¥Ò×ÓÃµÄÊı¾İ´¦Àí·½Ê½
+ * æµAPIçš„å…³é”®ä¸€ç‚¹åœ¨äºèƒ½å¤Ÿæ‰§è¡Œéå¸¸å¤æ‚çš„æŸ¥æ‰¾ã€è¿‡æ»¤å’Œæ˜ å°„æ•°æ®ç­‰æ“ä½œ
+ * ç®€å•æ¥è¯´ æµAPIæä¾›äº†ç®€å•æ˜“ç”¨çš„æ•°æ®å¤„ç†æ–¹å¼
  *
- * 1. ÖĞ¼ä²Ù×÷ ÓĞ×´Ì¬Ö®·Ö ·ÖÎª 1.ÓĞ×´Ì¬ 2.ÎŞ×´Ì¬
- * 2. ÖÕ¶Ë²Ù×÷
+ * 1. ä¸­é—´æ“ä½œ æœ‰çŠ¶æ€ä¹‹åˆ† åˆ†ä¸º 1.æœ‰çŠ¶æ€ 2.æ— çŠ¶æ€
+ * 2. ç»ˆç«¯æ“ä½œ
  *
  * Created by zfz on 2017/11/11.
  */
@@ -17,7 +17,7 @@ public class Stream01 {
 
     public static void main(String[] args) {
 
-        // ´´½¨Ò»¸öInteger¼¯ºÏ
+        // åˆ›å»ºä¸€ä¸ªIntegeré›†åˆ
         ArrayList<Integer> myList = new ArrayList<>();
         myList.add(7);
         myList.add(18);
@@ -28,17 +28,17 @@ public class Stream01 {
 
         System.out.println("Original list: "+myList);
 
-        // »ñÈ¡Õâ¸ö¼¯ºÏµÄÁ÷
+        // è·å–è¿™ä¸ªé›†åˆçš„æµ
         Stream<Integer> myStream = myList.stream();
 
-        // »ñÈ¡¼¯ºÏÖĞµÄ×îĞ¡Öµ
+        // è·å–é›†åˆä¸­çš„æœ€å°å€¼
         Optional<Integer> minVal = myStream.min(Integer::compareTo);
         if (minVal.isPresent()){
             System.out.println("Minimum is "+minVal.get());
         }
 
-        // ÓÉÓÚÉÏ±ßµÄÊ¹ÓÃÁËÖÕ¶Ë²Ù×÷stream.min() µ¼ÖÂ¸ÃÁ÷±»Ïû·Ñ¹ıÁË
-        // ²»ÄÜÔÙÊ¹ÓÃ Èç¹ûÏëÊ¹ÓÃÁ÷ ¾Í±ØĞëÖØĞÂstream()
+        // ç”±äºä¸Šè¾¹çš„ä½¿ç”¨äº†ç»ˆç«¯æ“ä½œstream.min() å¯¼è‡´è¯¥æµè¢«æ¶ˆè´¹è¿‡äº†
+        // ä¸èƒ½å†ä½¿ç”¨ å¦‚æœæƒ³ä½¿ç”¨æµ å°±å¿…é¡»é‡æ–°stream()
         myStream = myList.stream();
         Optional<Integer> maxVal = myStream.max(Integer::compareTo);
         if (maxVal.isPresent()){
@@ -46,18 +46,18 @@ public class Stream01 {
         }
         System.out.println();
 
-        //¶Ô¼¯ºÏ½øĞĞÅÅĞò Ä¬ÈÏµÄÓ¦¸ÃÊÇÉıĞòÅÅĞò
+        //å¯¹é›†åˆè¿›è¡Œæ’åº é»˜è®¤çš„åº”è¯¥æ˜¯å‡åºæ’åº
         Stream<Integer> sortedStream = myList.stream().sorted();
         sortedStream.forEach((n)-> System.out.println(n+""));
         System.out.println();
 
-        // ¶Ô¼¯ºÏ½øĞĞ¹ıÂË²Ù×÷ »ñµÃ¼¯ºÏÖĞµÄÆæÊı
+        // å¯¹é›†åˆè¿›è¡Œè¿‡æ»¤æ“ä½œ è·å¾—é›†åˆä¸­çš„å¥‡æ•°
         Stream<Integer> oddVals = myList.stream().sorted()
                 .filter(n->n%2 == 1);
         oddVals.forEach(n-> System.out.println(n+""));
         System.out.println();
 
-        // ¶Ô¼¯ºÏ½øĞĞ²Ù×÷ »ñÈ¡¼¯ºÏÖĞ´óÓÚ5µÄÆæÊı
+        // å¯¹é›†åˆè¿›è¡Œæ“ä½œ è·å–é›†åˆä¸­å¤§äº5çš„å¥‡æ•°
         oddVals = myList.stream()
                 .sorted()
                 .filter(n->n%2==1)

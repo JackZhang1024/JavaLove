@@ -1,7 +1,7 @@
 package java8.lambda;
 
 /**
- * lambda表达式与异常
+ * lambda琛ㄨ揪寮忎笌寮傚父
  * Created by zfz on 2017/11/11.
  */
 public class Lambda05 {
@@ -32,7 +32,7 @@ public class Lambda05 {
     static class EmptyArrayException extends Exception {
 
         public EmptyArrayException() {
-            super("数组不能为空");
+            super("鏁扮粍涓嶈兘涓虹┖");
         }
     }
 

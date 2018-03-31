@@ -1,7 +1,7 @@
 package java8.lambda;
 
 /**
- * ´´½¨·ºĞÍÀàµÄ¹¹Ôìº¯Êı
+ * åˆ›å»ºæ³›å‹ç±»çš„æ„é€ å‡½æ•°
  *
  *
  * Created by zfz on 2017/11/11.
@@ -15,8 +15,8 @@ public class Lambda12 {
         String result = myClass.getVal();
         System.out.println("result "+result);
 
-        //Êı×éµÄ¹¹Ôìº¯ÊıÒıÓÃ
-        //´´½¨³ö°üº¬Á½¸öMyClass¶ÔÏóµÄÊı×é,²¢¸³¸øÃ¿¸öÔªËØ³õÖµ
+        //æ•°ç»„çš„æ„é€ å‡½æ•°å¼•ç”¨
+        //åˆ›å»ºå‡ºåŒ…å«ä¸¤ä¸ªMyClasså¯¹è±¡çš„æ•°ç»„,å¹¶èµ‹ç»™æ¯ä¸ªå…ƒç´ åˆå€¼
         MyFunc2<MyClass> myFunc2= MyClass[]::new;
         MyClass[] a = myFunc2.func(2);
         a[0] = new MyClass("1");
