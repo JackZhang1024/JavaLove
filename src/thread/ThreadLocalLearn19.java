@@ -3,7 +3,7 @@ package thread;
 /**
  * Created by zfz on 2017/12/21.
  */
-public class MultiThreadLearn19 {
+public class ThreadLocalLearn19 {
 
     private static ThreadLocal<String> mNameThreadLoacl = new ThreadLocal<>();
     private static ThreadLocal<String> mValueThreadLocal = new ThreadLocal<>();
