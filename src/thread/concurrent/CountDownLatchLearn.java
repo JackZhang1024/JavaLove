@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
  * 之前，必须发生指定数量的事件。每发生一次事件，计数器减一。
  * 当计数器达到0时，打开锁存器。
  * <p>
- * 关键词 锁存器
+ * 关键词 锁存器 CountDownLatch countDown await
  * <p>
  * <p>
  * Created by zfz on 2017/12/4.

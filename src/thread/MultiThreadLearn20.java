@@ -1,4 +1,4 @@
-package thread.concurrent;
+package thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,8 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MultiThreadLearn20 {
 
     public static void main(String[] args) {
-        ExecutorService service =
-                Executors.newFixedThreadPool(Integer.MAX_VALUE);
+        ExecutorService service = Executors.newFixedThreadPool(Integer.MAX_VALUE);
         final CJTest cjTest = new CJTest();
         final CJTest2 cjTest2 = new CJTest2();
         final CJTest3 cjTest3 = new CJTest3();
@@ -22,17 +21,17 @@ public class MultiThreadLearn20 {
                 @Override
                 public void run() {
                     //cjTest.increase();
-                    //cjTest2.increase();
+                    cjTest2.increase();
                     //cjTest2.increase2();
                     //cjTest2.increase3();
-                    cjTest3.increase();
+                    //cjTest3.increase();
                 }
             });
         }
         service.shutdown();
         //System.out.println("Result: CJTest.count = "+CJTest.count);
-        //System.out.println("Result: CJTest2.count = "+CJTest2.count);
-        System.out.println("Result: CJTest2.count = " + CJTest3.count);
+        System.out.println("Result: CJTest2.count = "+CJTest2.count);
+        //System.out.println("Result: CJTest2.count = " + CJTest3.count);
     }
 
     public static class CJTest {

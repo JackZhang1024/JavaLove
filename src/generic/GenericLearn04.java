@@ -3,7 +3,7 @@ package generic;
 /**
  * 泛型接口
  * <p>
- * 一般情况下，实现了泛型接口，这个类必须是泛型类，而泛型类必须带有将要传递给接口的类型参数
+ * 一般情况下，实现了泛型接口，这个类必须是泛型类，而泛型类必须带有将要传递给泛型接口的类型参数
  * public class MyGenType<T> implements MinMax<T>{} 正确
  * public class MyGneType implements MinMax<T> 错误 因为没有给MyGenType声明类型参数，所以无法给MinMax接口传递类型参数
  * 对于这种情况，标识符T是未知的，编译器会报错

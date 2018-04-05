@@ -13,8 +13,8 @@ public class MultiThreadLearn16 {
     private Condition bCondition = reentrantLock.newCondition();
 
     public static void main(String[] args) {
-        //method1();
-        method2();
+        method1();
+        //method2();
     }
 
     public static void method1() {

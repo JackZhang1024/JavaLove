@@ -40,10 +40,14 @@ public class GenericLearn01 {
         dogs.add(new Dog(10));
         dogs.add(new Dog(2));
 
-        animals = mySortFunction(animals);
+        //animals = mySortFunction(animals);
+
+        //mySortFunction(dogs)方法不能执行 类型不兼容
         //mySortFunction(dogs);
+
         mySortFunction2(dogs);
-        mySortFunction2(animals);
+
+        //mySortFunction2(animals);
         for (Animal animal : animals) {
             System.out.println(" age " + animal.age);
         }

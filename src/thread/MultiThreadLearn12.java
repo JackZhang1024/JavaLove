@@ -12,7 +12,6 @@ public class MultiThreadLearn12 {
 
 
     private static class Water {
-        public static int zsl = 10;
         public static int dqsl = 5;
         public static int psl = 0;
         public static final Object water = new Water();
@@ -35,6 +34,7 @@ public class MultiThreadLearn12 {
                 synchronized (Water.water) {
                     if (isEmpty()) {
                         //当水塘没有的时候，等待注水线程注水
+                        System.out.println("需要注水线程进行注水...");
                         System.out.println("排水线程1 当前水量" + Water.dqsl + " 排水量 " + Water.psl);
                         try {
                             Water.water.wait();
@@ -72,17 +72,15 @@ public class MultiThreadLearn12 {
             super.run();
             try {
                 while (true) {
-                    try {
-                        Thread.sleep(2000);
-                    } catch (Exception e) {
-                        e.getMessage();
-                    }
+                    Thread.sleep(2000);
                     synchronized (Water.water) {
                         if (isEmpty()) {
                             Water.psl = 0;
-                            Water.dqsl++;
-                            System.out.println("注水线程 当前水量 " + Water.dqsl);
+                            //Water.dqsl++;
+                            Water.dqsl+=5;
+                            System.out.println("注水线程进行注水...");
                             Thread.sleep(3000);
+                            System.out.println("注水线程 当前水量 " + Water.dqsl);
                             Water.water.notify();
                         }
                     }

@@ -48,7 +48,8 @@ public class GenericLearn08 {
             }
         }
 
-        public static void showXYZ(Coordinates<? extends ThreeD> c) {
+        public static void showXYZ(Coordinates<ThreeD> c) {
+        //public static void showXYZ(Coordinates<? extends ThreeD> c) {
             System.out.println("X Y Z coordinates ");
             for (int index = 0; index < c.coordinates.length; index++) {
                 int x = c.coordinates[index].getX();

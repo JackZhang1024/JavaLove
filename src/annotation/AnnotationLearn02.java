@@ -61,7 +61,7 @@ public class AnnotationLearn02 {
 
     @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
     @IntDef({SUNDAY, MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY})
-    @Retention(RetentionPolicy.SOURCE)
+    @Retention(RetentionPolicy.RUNTIME)
     @interface WeekDays{
 
     }

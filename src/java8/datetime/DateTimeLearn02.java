@@ -9,7 +9,7 @@ import java.time.format.FormatStyle;
 /**
  * Created by zfz on 2017/12/3.
  */
-public class DateTimeLean02 {
+public class DateTimeLearn02 {
 
     public static void main(String[] args) {
         getLocalTime();

@@ -45,7 +45,7 @@ public class MultiThreadLearn05 {
         public void run() {
             super.run();
             int i = 0;
-            while (true) {
+            for (;;) {
                 try {
                     System.out.println("DaemonThread " + (i++));
                     Thread.sleep(1000);

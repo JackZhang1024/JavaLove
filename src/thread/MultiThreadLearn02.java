@@ -26,6 +26,7 @@ public class MultiThreadLearn02 {
             try {
                 for (int i = 0; i < 10; i++) {
                     System.out.println("线程名称 " + Thread.currentThread().getName() + " " + i);
+                    Thread.sleep(2000);
                     if (i == 5) { // 当线程一数到5的时候 线程二抢占属于CPU分给线程一的时间片 执行线程二
                         myThread2.join();
                     }
@@ -45,9 +46,14 @@ public class MultiThreadLearn02 {
         @Override
         public void run() {
             super.run();
-            for (int i = 0; i < 10; i++) {
-                System.out.println("线程名称 " + Thread.currentThread().getName() + " " + i);
+            try {
+                for (int i = 0; i < 10; i++) {
+                    System.out.println("线程名称 " + Thread.currentThread().getName() + " " + i);
+                    Thread.sleep(2000);
 
+                }
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
     }

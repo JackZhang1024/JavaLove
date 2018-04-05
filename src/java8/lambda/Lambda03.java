@@ -19,11 +19,20 @@ public class Lambda03 {
             }
             return result;
         };
+        GenericFunc<Integer> factorialFunc = (n) ->{
+            int result = n;
+            for (int i = 1; i < n; i++){
+                result = result*(n-i);
+            }
+            return result;
+        };
+
         String strResult = stringGenericFunc.func("hello world!");
         Integer integerResult = integerGenericFunc.func(10);
+        Integer factorialResult = factorialFunc.func(6);
         System.out.println("strResult "+strResult);
         System.out.println("intResult "+integerResult);
-
+        System.out.println("Factorial "+factorialResult);
     }
 
     public interface GenericFunc<T>{

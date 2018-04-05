@@ -9,6 +9,7 @@ package java8.lambda;
 public class Lambda12 {
 
 
+
     public static void main(String[] args) {
         MyFunc<String> myFunc = MyClass<String>::new;
         MyClass<String> myClass = myFunc.func("Hello world!");

@@ -9,8 +9,6 @@ package java8.lambda;
  *
  * 方法引用有多种
  * 1. 静态方法的引用
- *
- *
  * Created by zfz on 2017/11/11.
  */
 public class Lambda07 {

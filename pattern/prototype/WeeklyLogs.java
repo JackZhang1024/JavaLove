@@ -44,6 +44,7 @@ public class WeeklyLogs implements Serializable {
         this.attachment = attachment;
     }
 
+    // 通过字节数组输入输出流来读写对象
     public WeeklyLogs deepClone() {
         try {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();

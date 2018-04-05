@@ -30,9 +30,7 @@ public class Stream02 {
         // 进行缩减操作
 
         // 第一种缩减操作
-        Optional<Integer> productObj = myList.stream().reduce((a, b)->{
-            return  a*b;
-        });
+        Optional<Integer> productObj = myList.stream().reduce((a, b)-> a*b);
         if (productObj.isPresent()){
             System.out.println("Product as optional:  "+productObj.get());
         }
@@ -50,6 +48,10 @@ public class Stream02 {
             else return a;
         });
         System.out.println("列表中偶数的乘积 "+product1);
+
+        int product2 = myList.stream().reduce(0, (a, b)->a+b);
+        System.out.println("Product as int:  "+product2);
+
     }
 
 

@@ -1,6 +1,6 @@
 package java8.lambda;
 
-import java.util.function.Function;
+import java.util.function.*;
 
 /**
  * 预定义的函数式接口
@@ -33,8 +33,43 @@ import java.util.function.Function;
 public class Lambda13 {
 
     public static void main(String[] args) {
-        functionLearn();
+        //functionLearn();
+        //unaryOperatorLearn();
+        binaryOperatorLearn();
+        acceptLearn();
+        supplerLearn();
+        predicateLearn(new String[]{"Rose", "Jack", "Lucy", "John"});
     }
+
+    private static void unaryOperatorLearn(){
+        UnaryOperator<String> stringUnaryOperator = n ->n.toUpperCase();
+        String result = stringUnaryOperator.apply("hello");
+        System.out.println("result "+result);
+    }
+
+    private static void binaryOperatorLearn(){
+        BinaryOperator<Double> doubleBinaryOperator = (a, b)->  a>b? a: b;
+        double result = doubleBinaryOperator.apply(10d, 30d);
+        System.out.println("Result  "+result);
+    }
+
+    private static void acceptLearn(){
+        Consumer<Integer> integerConsumer = (n)->{
+            int result = 0;
+            for (int i=0; i< n; i++){
+                 result+=i;
+            }
+            System.out.println("result "+result);
+        };
+        integerConsumer.accept(100);
+    }
+
+    private static void supplerLearn(){
+        Supplier<String> stringSupplier = ()-> "Hello World!";
+        String result = stringSupplier.get();
+        System.out.println("result "+result);
+    }
+
 
     private static void functionLearn(){
         Function<Integer, Integer> function = (n)-> {
@@ -48,5 +83,19 @@ public class Lambda13 {
         System.out.println("result "+result);
     }
 
+    private static void predicateLearn(String[] array){
+        Predicate<String> stringPredicate = (n)-> {
+            boolean isExist = false;
+            for (String str: array){
+                 if (n.equalsIgnoreCase(str)){
+                     isExist = true;
+                     break;
+                 }
+            }
+            return isExist;
+        };
+        boolean isExist= stringPredicate.test("Jack1");
+        System.out.println("isExist "+isExist);
+    }
 
 }

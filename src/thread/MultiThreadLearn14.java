@@ -5,6 +5,9 @@ import java.util.List;
 
 /**
  * 一个生产者和多个消费者模式
+ * <p>
+ * 需要考虑使用两个对象锁来实现
+ * <p>
  * Created by zfz on 2017/10/15.
  */
 public class MultiThreadLearn14 {
@@ -18,7 +21,8 @@ public class MultiThreadLearn14 {
     }
 
     private static final int MAX_PRODUCE_ABILITY = 20;
-    private static boolean isProduce = true;
+    private static final Object productLock = new Object();
+    private static final Object consumerLock = new Object();
 
     private static class ProduceThread extends Thread {
         private List<Product> productList;
@@ -32,37 +36,32 @@ public class MultiThreadLearn14 {
         public void run() {
             super.run();
             try {
-                Thread.sleep(3000);
-            }catch (Exception e){
-                e.getMessage();
-            }
-            while (true) {
-                synchronized (productList) {
-                    if (productList.size() == MAX_PRODUCE_ABILITY) {
-                        try {
-                            productList.wait();
+                while (true) {
+                    Thread.sleep(3000);
+                    synchronized (productLock) {
+                        // 食物个数大于0的时候 继续等待
+                        if (productList.size() > 0 ) {
+                            productLock.wait();
                             System.out.println("生产者 " + Thread.currentThread().getName() + " 结束等待");
-                        } catch (Exception e) {
-                            e.getMessage();
+                        }
+                        int sumNeedProduce = MAX_PRODUCE_ABILITY - productList.size();
+                        for (int i = 0; i < sumNeedProduce; i++) {
+                            productList.add(new Product("产品ProductID " + i));
+                        }
+                        System.out.println("生产者" + Thread.currentThread().getName() + "生产了 " + sumNeedProduce + "食品");
+                        Thread.sleep(1000 * 6);
+                        synchronized (consumerLock) {
+                            System.out.println("通知消费者进行消费...");
+                            consumerLock.notifyAll();
                         }
                     }
-                    if (!isProduce) return;
-                    int sumNeedProduce = MAX_PRODUCE_ABILITY - productList.size();
-                    for (int i = 0; i < sumNeedProduce; i++) {
-                        productList.add(new Product("ProductID " + i));
-                    }
-                    System.out.println("生产者" + Thread.currentThread().getName() + "生产了 " + sumNeedProduce + "食品");
-                    try {
-                        Thread.sleep(100); // 模拟生产过程
-                    } catch (Exception e) {
-                        e.getMessage();
-                    }
-                    isProduce = false;
-                    productList.notifyAll(); // 通知消费者消费
                 }
+            } catch (Exception e) {
+                e.getMessage();
             }
         }
     }
+
 
     private static class ConsumerThread extends Thread {
         private List<Product> productList;
@@ -75,33 +74,26 @@ public class MultiThreadLearn14 {
         @Override
         public void run() {
             super.run();
-            while (true) {
-                synchronized (productList) {
-                    System.out.println(Thread.currentThread().getName()+ "判断开始 "+productList.size()+" 食物 ");
-                    if (productList.isEmpty()) {
-                        try {
-                            System.out.println(Thread.currentThread().getName()+ "消费者等待开始");
-                            productList.wait();
-                            System.out.println(Thread.currentThread().getName()+ "消费者等待结束");
-                        } catch (Exception e) {
-                            e.getMessage();
+            try {
+                while (true) {
+                    Thread.sleep(1000);
+                    synchronized (consumerLock) {
+                        System.out.println(Thread.currentThread().getName() + "判断开始还剩 " + productList.size() + " 个食物 ");
+                        if (productList.isEmpty()) {
+                            synchronized (productLock) {
+                                productLock.notify();
+                            }
+                            System.out.println("通知生产者进行生产...");
+                            consumerLock.wait();
+                            System.out.println("消费锁结束等待...");
+                        } else {
+                            Product product = productList.remove(0);
+                            System.out.println(Thread.currentThread().getName() + "消费了食品 " + product.uid);
                         }
                     }
-                    if (!productList.isEmpty()){
-                        Product product = productList.remove(0);
-                        System.out.println(Thread.currentThread().getName() + "消费了食品 " + product.uid);
-                    }
-                    if (productList.isEmpty()) {
-                        isProduce = true;
-                        System.out.println(Thread.currentThread().getName()+ "通知生产者生产");
-                        productList.notifyAll();
-                    }
                 }
-                try {
-                    Thread.sleep(1500);
-                } catch (Exception e) {
-                    e.getMessage();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
